@@ -33,6 +33,8 @@ public class ConfigurationController(IConfiguration configuration) : ControllerB
         configuration.GetSection(DatabaseOption.SectionName).Bind(databaseOption);
         // You can also use the code below to achieve the same result
         // configuration.Bind(DatabaseOption.SectionName, databaseOption);
+
+        // when bing the configuration, the `databaseOption` object will be updated with the values from the configuration AKA ConnectionString.
         return Ok(new { databaseOption.Type, databaseOption.ConnectionString });
     }
 
